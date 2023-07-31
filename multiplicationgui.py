@@ -8,8 +8,8 @@ class MultiplicationGUI:
         button_fg = "#FFFFFF"
 
         # Smaller padding for buttons
-        button_padx = 5
-        button_pady = 5
+        button_padx = 7
+        button_pady = 7
 
         # Multiplication GUI Frame
         self.multiplication_frame = Frame(root, padx=5, pady=10)
@@ -26,7 +26,8 @@ class MultiplicationGUI:
                                          wrap=150,
                                          width=30,
                                          pady=6,
-                                         justify="left")
+                                         font=("Arial", 12,),
+                                         justify="center")  # Center the text
         self.multiplication_text.grid(row=1, column=0, columnspan=6)
 
         instructions = "Select desired tables below"
@@ -35,7 +36,7 @@ class MultiplicationGUI:
                                                  wrap=150,
                                                  width=30,
                                                  pady=6,
-                                                 justify="left")
+                                                 justify="center")  # Center the text
         self.multiplication_instructions.grid(row=2, column=0, columnspan=6)
       
         # Times Tables buttons
