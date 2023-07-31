@@ -7,3 +7,4 @@ if __name__ == "__main__":
     root.title("Math Program")
     maingui = MainGUI()
     root.mainloop()
+  
