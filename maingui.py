@@ -1,14 +1,15 @@
 from tkinter import *
+from multiplicationgui import MultiplicationGUI
 
 class MainGUI:
-    def __init__(self):
+    def __init__(self, root):
         # common format for all buttons
         # Arial size 14, with white text
         button_font = ("Arial", "14", "bold")
         button_fg = "#FFFFFF"
 
         # Set up GUI Frame
-        self.main_frame = Frame(padx=10, pady=10)
+        self.main_frame = Frame(root, padx=10, pady=10)
         self.main_frame.grid()
 
         self.main_heading = Label(self.main_frame,
@@ -37,7 +38,8 @@ class MainGUI:
                                       font=button_font,
                                       width=12,
                                       pady=10,
-                                      bd=3)  
+                                      bd=3,
+                                      command=self.open_addition_gui)
         self.addition_button.grid(row=0, column=0, padx=5, pady=5)
 
         # Subtraction -
@@ -48,7 +50,7 @@ class MainGUI:
                                          font=button_font,
                                          width=12,
                                          pady=10,
-                                         bd=3)  
+                                         bd=3)
         self.subtraction_button.grid(row=0, column=1, padx=5, pady=5)
 
         # Multiplication ×
@@ -59,7 +61,8 @@ class MainGUI:
                                             font=button_font,
                                             width=12,
                                             pady=10,
-                                            bd=3)  
+                                            bd=3,
+                                            command=self.open_multiplication_gui)
         self.multiplication_button.grid(row=1, column=0, padx=5, pady=5)
 
         # Division ÷
@@ -70,12 +73,21 @@ class MainGUI:
                                       font=button_font,
                                       width=12,
                                       pady=10,
-                                      bd=3)  
+                                      bd=3)
         self.division_button.grid(row=1, column=1, padx=5, pady=5)
 
-# main routine
-if __name__ == "__main__":
-    root = Tk()
-    root.title("Math Program")
-    program = MainGUI()
-    root.mainloop()
+    def open_addition_gui(self):
+        # Create a new window for the Addition GUI
+        # Implement your Addition GUI code here
+        pass
+
+    def open_multiplication_gui(self):
+        # Create a new window for the Multiplication GUI
+        multiplication_window = Toplevel()
+        multiplication_window.title("Multiplication GUI")
+        multiplication_gui = MultiplicationGUI(multiplication_window)
+
+  
+# Note: The open_addition_gui method is left empty for you to add the Addition GUI code.
+# You can create another file "additiongui.py" and follow a similar structure to create
+# the Addition GUI class and import it into this "main.py".
