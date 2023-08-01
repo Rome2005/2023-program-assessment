@@ -26,11 +26,11 @@ class MultiplicationGUI:
                                          wrap=150,
                                          width=30,
                                          pady=6,
-                                         font=("Arial", 12,),
+                                         font=("Arial", 11),
                                          justify="center")  # Center the text
         self.multiplication_text.grid(row=1, column=0, columnspan=6)
 
-        instructions = "Select desired tables below"
+        instructions = "Filter out times tables below"
         self.multiplication_instructions = Label(self.multiplication_frame, 
                                                  text=instructions,
                                                  wrap=150,
@@ -122,7 +122,9 @@ class MultiplicationGUI:
                                   font=button_font,
                                   width=12,
                                   pady=6,
-                                  bd=3)
+                                  bd=3,
+                                  command=self.start_game,
+                                  state="disabled")  # Initially disabled
         self.start_button.grid(row=0, column=0, padx=5, pady=5)
 
     def select_times_table(self, num):
@@ -133,8 +135,21 @@ class MultiplicationGUI:
             self.selected_times_table.set(num)
             self.times_table_buttons[num - 1].config(relief="sunken")  # Change relief to "sunken"
 
-    def get_selected_times_table(self):
-        return self.selected_times_table.get()
+        # Count how many buttons are currently selected
+        num_selected = sum(1 for btn in self.times_table_buttons if btn.cget("relief") == "sunken")
+
+        # Disable the unselected button if all but one table button are selected
+        for button in self.times_table_buttons:
+            if button.cget("relief") == "raised" and num_selected == 11:
+                button.config(state="disabled")
+            else:
+                button.config(state="normal")
+
+        # Enable the start button if at least one difficulty is selected
+        if self.selected_difficulty.get() != 0:
+            self.start_button.config(state="normal")
+        else:
+            self.start_button.config(state="disabled")
 
     def select_difficulty(self, num):
         if self.selected_difficulty.get() == num:
@@ -144,6 +159,12 @@ class MultiplicationGUI:
             self.selected_difficulty.set(num)
             self.update_difficulty_buttons()
 
+        # Enable the start button if at least one difficulty is selected
+        if self.selected_difficulty.get() != 0:
+            self.start_button.config(state="normal")
+        else:
+            self.start_button.config(state="disabled")
+
     def update_difficulty_buttons(self):
         difficulties = [self.easy_button, self.medium_button, self.hard_button]
         for i, button in enumerate(difficulties, start=1):
@@ -151,6 +172,10 @@ class MultiplicationGUI:
                 button.config(relief="sunken")
             else:
                 button.config(relief="raised")
+
+    def start_game(self):
+        # Replace this method with the actual start game functionality
+        pass
 
 root = Tk()
 root.title("Multiplication Quiz")
