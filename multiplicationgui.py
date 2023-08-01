@@ -1,4 +1,5 @@
 from tkinter import *
+from quizgui import QuizGUI
 
 class MultiplicationGUI:
     def __init__(self, root):
@@ -175,7 +176,10 @@ class MultiplicationGUI:
 
     def start_game(self):
         # Replace this method with the actual start game functionality
-        pass
+        quiz_window = Toplevel()  # Create a new window for the Quiz GUI
+        quiz_window.title("Quiz")
+        quiz_gui = QuizGUI(quiz_window)  # Initialize the QuizGUI class in the new window
+        # Add any necessary functionality for starting the quiz here
 
 root = Tk()
 root.title("Multiplication Quiz")
