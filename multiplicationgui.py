@@ -1,10 +1,11 @@
 from tkinter import *
 from quizgui import QuizGUI
+from questionstorage import QuestionStorage
+import random
 
 class MultiplicationGUI:
     def __init__(self, root):
         # Common format for all buttons
-        # Arial size 10, with white text
         button_font = ("Arial", 10, "bold")
         button_fg = "#FFFFFF"
 
@@ -175,13 +176,7 @@ class MultiplicationGUI:
                 button.config(relief="raised")
 
     def start_game(self):
-        # Replace this method with the actual start game functionality
-        quiz_window = Toplevel()  # Create a new window for the Quiz GUI
+        # Create a new window for the Quiz GUI
+        quiz_window = Toplevel()
         quiz_window.title("Quiz")
-        quiz_gui = QuizGUI(quiz_window)  # Initialize the QuizGUI class in the new window
-        # Add any necessary functionality for starting the quiz here
-
-root = Tk()
-root.title("Multiplication Quiz")
-gui = MultiplicationGUI(root)
-root.mainloop()
+        quiz_gui = QuizGUI(quiz_window)

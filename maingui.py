@@ -4,7 +4,6 @@ from multiplicationgui import MultiplicationGUI
 class MainGUI:
     def __init__(self, root):
         # common format for all buttons
-        # Arial size 14, with white text
         button_font = ("Arial", "14", "bold")
         button_fg = "#FFFFFF"
 
@@ -87,7 +86,6 @@ class MainGUI:
         multiplication_window.title("Multiplication GUI")
         multiplication_gui = MultiplicationGUI(multiplication_window)
 
-  
 # Note: The open_addition_gui method is left empty for you to add the Addition GUI code.
 # You can create another file "additiongui.py" and follow a similar structure to create
 # the Addition GUI class and import it into this "main.py".

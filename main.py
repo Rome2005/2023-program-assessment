@@ -1,7 +1,5 @@
 from tkinter import *
 from maingui import MainGUI
-from multiplicationgui import MultiplicationGUI
-from quizgui import QuizGUI 
 
 # main routine
 if __name__ == "__main__":
